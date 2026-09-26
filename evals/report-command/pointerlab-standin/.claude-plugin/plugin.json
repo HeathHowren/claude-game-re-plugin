@@ -1,0 +1,9 @@
+{
+  "name": "pointerlab-standin",
+  "version": "1.0.0",
+  "description": "Eval fixture only. Declares a server named pointerlab so claude plugin eval can mock Pointer Lab's MCP tools. Never install it.",
+  "author": {
+    "name": "Heath Howren"
+  },
+  "license": "MIT"
+}
