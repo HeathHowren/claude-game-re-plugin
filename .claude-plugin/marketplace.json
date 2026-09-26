@@ -1,0 +1,23 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "game-reversal-club",
+  "description": "Claude Code plugins from Game Reversal Club.",
+  "owner": {
+    "name": "Heath Howren",
+    "url": "https://gamereversal.club"
+  },
+  "plugins": [
+    {
+      "name": "game-re",
+      "description": "Game reverse-engineering workflows from The Game Hacker's Handbook, driving Pointer Lab, pe-mcp and the Game Reversal Club tools. Writes stay blocked until you opt in.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Heath Howren",
+        "url": "https://gamereversal.club"
+      },
+      "source": "./",
+      "category": "security",
+      "homepage": "https://github.com/HeathHowren/claude-game-re-plugin"
+    }
+  ]
+}

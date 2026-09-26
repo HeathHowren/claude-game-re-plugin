@@ -1,0 +1,22 @@
+{
+  "name": "game-re",
+  "version": "1.0.0",
+  "description": "Game reverse-engineering workflows from The Game Hacker's Handbook, driving Pointer Lab, pe-mcp and the Game Reversal Club tools. Writes stay blocked until you opt in.",
+  "author": {
+    "name": "Heath Howren",
+    "url": "https://gamereversal.club"
+  },
+  "homepage": "https://gamereversal.club",
+  "repository": "https://github.com/HeathHowren/claude-game-re-plugin",
+  "license": "MIT",
+  "keywords": [
+    "reverse-engineering",
+    "game-hacking",
+    "pointer-lab",
+    "memory-scanning",
+    "pointer-chains",
+    "signatures",
+    "mcp",
+    "pe-files"
+  ]
+}

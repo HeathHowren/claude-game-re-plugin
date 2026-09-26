@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "pe-mcp": {
+      "command": "pe-mcp.exe",
+      "args": []
+    }
+  }
+}
