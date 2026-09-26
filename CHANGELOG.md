@@ -39,3 +39,5 @@ The first release.
 - **30 tests** for the hook and the checker, and CI on Windows that runs them
   in Windows PowerShell 5.1 and PowerShell 7, then runs
   `claude plugin validate`.
+
+[1.0.0]: https://github.com/HeathHowren/claude-game-re-plugin/releases/tag/v1.0.0
