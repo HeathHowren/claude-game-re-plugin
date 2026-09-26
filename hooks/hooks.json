@@ -1,0 +1,17 @@
+{
+  "description": "Blocks Pointer Lab's write, patch, allocate, inject and thread MCP tools unless GRC_ALLOW_WRITES=1 is set in the environment Claude Code was started from.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "^mcp__.*[Pp]ointer[-_]?[Ll]ab.*__(write|write_bytes|update_value|set_frozen|patch_apply|patch_set_enabled|alloc|free|create_thread|load_library|aa_set_enabled|speed_load|speed_set_scale|breakpoint_add|project_load)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell.exe -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"${CLAUDE_PLUGIN_ROOT}/hooks/guard-writes.ps1\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}
