@@ -1,0 +1,4 @@
+evals/results/
+node_modules/
+.claude/
+*.log

@@ -1,0 +1,14 @@
+{
+  "name": "claude-game-re-plugin",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Checks and tests for the game-re Claude Code plugin. The plugin itself needs no install step.",
+  "license": "MIT",
+  "scripts": {
+    "check": "node scripts/check-plugin.js",
+    "test": "node --test \"tests/*.test.js\""
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
