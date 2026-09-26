@@ -1,0 +1,1280 @@
+{
+  "$comment": "Tool names and argument schemas the skills are checked against by scripts/check-plugin.js. pointerlab: transcribed from Pointer Lab 3.2 src/mcp (McpTools*.cpp). pe-mcp: the tools/list response of pe-mcp 1.0.0.",
+  "pointerlab": {
+    "processes": {
+      "properties": {},
+      "required": []
+    },
+    "attach": {
+      "properties": {
+        "pid": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "pid"
+      ]
+    },
+    "detach": {
+      "properties": {},
+      "required": []
+    },
+    "refresh": {
+      "properties": {},
+      "required": []
+    },
+    "session_info": {
+      "properties": {},
+      "required": []
+    },
+    "modules": {
+      "properties": {
+        "filter": {
+          "type": "string"
+        }
+      },
+      "required": []
+    },
+    "regions": {
+      "properties": {
+        "writable_only": {
+          "type": "boolean"
+        },
+        "executable_only": {
+          "type": "boolean"
+        },
+        "limit": {
+          "type": "integer"
+        }
+      },
+      "required": []
+    },
+    "read": {
+      "properties": {
+        "address": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "i8",
+            "u8",
+            "i16",
+            "u16",
+            "i32",
+            "u32",
+            "i64",
+            "u64",
+            "f32",
+            "f64",
+            "bytes",
+            "str",
+            "wstr"
+          ]
+        }
+      },
+      "required": [
+        "address"
+      ]
+    },
+    "write": {
+      "properties": {
+        "address": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "i8",
+            "u8",
+            "i16",
+            "u16",
+            "i32",
+            "u32",
+            "i64",
+            "u64",
+            "f32",
+            "f64",
+            "bytes",
+            "str",
+            "wstr"
+          ]
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "value"
+      ]
+    },
+    "read_bytes": {
+      "properties": {
+        "address": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "size": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "address",
+        "size"
+      ]
+    },
+    "write_bytes": {
+      "properties": {
+        "address": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "hex": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "hex"
+      ]
+    },
+    "read_pointer": {
+      "properties": {
+        "address": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        }
+      },
+      "required": [
+        "address"
+      ]
+    },
+    "scan_first": {
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "Exact value",
+            "Unknown initial value",
+            "Changed value",
+            "Unchanged value",
+            "Increased value",
+            "Decreased value",
+            "Value between",
+            "Bigger than",
+            "Smaller than",
+            "Increased by",
+            "Decreased by",
+            "Same as first scan"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "i8",
+            "u8",
+            "i16",
+            "u16",
+            "i32",
+            "u32",
+            "i64",
+            "u64",
+            "f32",
+            "f64",
+            "bytes",
+            "str",
+            "wstr"
+          ]
+        },
+        "value": {
+          "type": "string"
+        },
+        "value2": {
+          "type": "string"
+        },
+        "case_insensitive": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "mode"
+      ]
+    },
+    "scan_next": {
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "Exact value",
+            "Unknown initial value",
+            "Changed value",
+            "Unchanged value",
+            "Increased value",
+            "Decreased value",
+            "Value between",
+            "Bigger than",
+            "Smaller than",
+            "Increased by",
+            "Decreased by",
+            "Same as first scan"
+          ]
+        },
+        "value": {
+          "type": "string"
+        },
+        "value2": {
+          "type": "string"
+        },
+        "case_insensitive": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "mode"
+      ]
+    },
+    "scan_status": {
+      "properties": {},
+      "required": []
+    },
+    "scan_results": {
+      "properties": {
+        "offset": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        }
+      },
+      "required": []
+    },
+    "scan_cancel": {
+      "properties": {},
+      "required": []
+    },
+    "scan_set_options": {
+      "properties": {
+        "max_results": {
+          "type": "integer"
+        },
+        "writable_only": {
+          "type": "boolean"
+        },
+        "executable_only": {
+          "type": "boolean"
+        },
+        "float_epsilon": {
+          "type": "number"
+        }
+      },
+      "required": []
+    },
+    "find_pattern": {
+      "properties": {
+        "start": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "size": {
+          "type": "integer"
+        },
+        "pattern": {
+          "type": "string"
+        },
+        "max_results": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start",
+        "size",
+        "pattern"
+      ]
+    },
+    "resolve": {
+      "properties": {
+        "expression": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "expression"
+      ]
+    },
+    "describe": {
+      "properties": {
+        "address": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        }
+      },
+      "required": [
+        "address"
+      ]
+    },
+    "symbol_define": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "expression": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "expression"
+      ]
+    },
+    "symbol_undefine": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "symbols_list": {
+      "properties": {},
+      "required": []
+    },
+    "resolve_chain": {
+      "properties": {
+        "module": {
+          "type": "string"
+        },
+        "module_offset": {
+          "type": "integer"
+        },
+        "offsets": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "module_offset"
+      ]
+    },
+    "pointer_scan_start": {
+      "properties": {
+        "target": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "max_depth": {
+          "type": "integer"
+        },
+        "max_offset": {
+          "type": "integer"
+        },
+        "max_results": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "target"
+      ]
+    },
+    "pointer_scan_filter": {
+      "properties": {
+        "target": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        }
+      },
+      "required": [
+        "target"
+      ]
+    },
+    "pointer_scan_status": {
+      "properties": {},
+      "required": []
+    },
+    "pointer_scan_results": {
+      "properties": {
+        "offset": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        }
+      },
+      "required": []
+    },
+    "add_address": {
+      "properties": {
+        "address": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "i8",
+            "u8",
+            "i16",
+            "u16",
+            "i32",
+            "u32",
+            "i64",
+            "u64",
+            "f32",
+            "f64",
+            "bytes",
+            "str",
+            "wstr"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "group": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "address"
+      ]
+    },
+    "add_chain_address": {
+      "properties": {
+        "module": {
+          "type": "string"
+        },
+        "module_offset": {
+          "type": "integer"
+        },
+        "offsets": {
+          "type": "array"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "i8",
+            "u8",
+            "i16",
+            "u16",
+            "i32",
+            "u32",
+            "i64",
+            "u64",
+            "f32",
+            "f64",
+            "bytes",
+            "str",
+            "wstr"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "group": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "module_offset"
+      ]
+    },
+    "list_addresses": {
+      "properties": {},
+      "required": []
+    },
+    "remove_address": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "set_frozen": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "frozen": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "frozen"
+      ]
+    },
+    "update_value": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "value"
+      ]
+    },
+    "struct_add": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "struct_list": {
+      "properties": {},
+      "required": []
+    },
+    "struct_set_fields": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "fields": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "fields"
+      ]
+    },
+    "struct_read": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "addresses": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "addresses"
+      ]
+    },
+    "struct_guess": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "addresses": {
+          "type": "array"
+        },
+        "size": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "addresses"
+      ]
+    },
+    "disassemble": {
+      "properties": {
+        "address": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "address"
+      ]
+    },
+    "assemble": {
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "address": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        }
+      },
+      "required": [
+        "source",
+        "address"
+      ]
+    },
+    "alloc": {
+      "properties": {
+        "size": {
+          "type": "integer"
+        },
+        "protection": {
+          "type": "string",
+          "enum": [
+            "rwx",
+            "rw",
+            "rx",
+            "r"
+          ]
+        },
+        "near": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        }
+      },
+      "required": [
+        "size"
+      ]
+    },
+    "free": {
+      "properties": {
+        "address": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        }
+      },
+      "required": [
+        "address"
+      ]
+    },
+    "create_thread": {
+      "properties": {
+        "start": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "parameter": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start"
+      ]
+    },
+    "load_library": {
+      "properties": {
+        "path": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path"
+      ]
+    },
+    "aa_check": {
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "enable_section": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "source"
+      ]
+    },
+    "aa_add": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "source"
+      ]
+    },
+    "aa_set_enabled": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "enabled"
+      ]
+    },
+    "aa_disable_all": {
+      "properties": {},
+      "required": []
+    },
+    "aa_scripts": {
+      "properties": {},
+      "required": []
+    },
+    "debugger_attach": {
+      "properties": {},
+      "required": []
+    },
+    "debugger_detach": {
+      "properties": {},
+      "required": []
+    },
+    "breakpoint_add": {
+      "properties": {
+        "address": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "label": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "software",
+            "execute",
+            "write",
+            "readwrite"
+          ]
+        },
+        "length": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "address"
+      ]
+    },
+    "breakpoint_remove": {
+      "properties": {
+        "address": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        }
+      },
+      "required": [
+        "address"
+      ]
+    },
+    "breakpoints_list": {
+      "properties": {},
+      "required": []
+    },
+    "breakpoint_events": {
+      "properties": {},
+      "required": []
+    },
+    "access_watch_start": {
+      "properties": {
+        "address": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "length": {
+          "type": "integer"
+        },
+        "writes_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "address"
+      ]
+    },
+    "access_watch_stop": {
+      "properties": {},
+      "required": []
+    },
+    "access_watch_sites": {
+      "properties": {},
+      "required": []
+    },
+    "patch_apply": {
+      "properties": {
+        "address": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "hex": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "pad": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "address",
+        "hex"
+      ]
+    },
+    "patch_set_enabled": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "enabled"
+      ]
+    },
+    "patch_remove": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "patch_restore_all": {
+      "properties": {},
+      "required": []
+    },
+    "patches_list": {
+      "properties": {},
+      "required": []
+    },
+    "speed_load": {
+      "properties": {},
+      "required": []
+    },
+    "speed_set_scale": {
+      "properties": {
+        "scale": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "scale"
+      ]
+    },
+    "speed_reset": {
+      "properties": {},
+      "required": []
+    },
+    "speed_status": {
+      "properties": {},
+      "required": []
+    },
+    "project_save": {
+      "properties": {
+        "path": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path"
+      ]
+    },
+    "project_load": {
+      "properties": {
+        "path": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path"
+      ]
+    },
+    "screenshot": {
+      "properties": {
+        "path": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path"
+      ]
+    },
+    "select_panel": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "set_layout": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "set_window_size": {
+      "properties": {
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "width",
+        "height"
+      ]
+    },
+    "quit": {
+      "properties": {},
+      "required": []
+    }
+  },
+  "pe-mcp": {
+    "open_file": {
+      "properties": {
+        "path": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path"
+      ]
+    },
+    "close_file": {
+      "properties": {
+        "file": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "file"
+      ]
+    },
+    "list_files": {
+      "properties": {},
+      "required": []
+    },
+    "headers": {
+      "properties": {
+        "file": {
+          "type": "string"
+        }
+      },
+      "required": []
+    },
+    "sections": {
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "required": []
+    },
+    "imports": {
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "dll": {
+          "type": "string"
+        },
+        "filter": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "required": []
+    },
+    "exports": {
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "filter": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "required": []
+    },
+    "strings": {
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "min_length": {
+          "type": "integer"
+        },
+        "encoding": {
+          "type": "string",
+          "enum": [
+            "both",
+            "ascii",
+            "utf16"
+          ]
+        },
+        "section": {
+          "type": "string"
+        },
+        "include_code": {
+          "type": "boolean"
+        },
+        "filter": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "required": []
+    },
+    "disassemble": {
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "rva": {
+          "type": [
+            "string",
+            "integer"
+          ]
+        },
+        "va": {
+          "type": [
+            "string",
+            "integer"
+          ]
+        },
+        "count": {
+          "type": "integer"
+        },
+        "function": {
+          "type": "boolean"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "required": []
+    },
+    "xrefs_to": {
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "rva": {
+          "type": [
+            "string",
+            "integer"
+          ]
+        },
+        "va": {
+          "type": [
+            "string",
+            "integer"
+          ]
+        },
+        "size": {
+          "type": "integer"
+        },
+        "include_data": {
+          "type": "boolean"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "required": []
+    },
+    "find_pattern": {
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "pattern": {
+          "type": "string"
+        },
+        "section": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "pattern"
+      ]
+    },
+    "read_bytes": {
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "rva": {
+          "type": [
+            "string",
+            "integer"
+          ]
+        },
+        "va": {
+          "type": [
+            "string",
+            "integer"
+          ]
+        },
+        "offset": {
+          "type": [
+            "string",
+            "integer"
+          ]
+        },
+        "length": {
+          "type": "integer"
+        }
+      },
+      "required": []
+    },
+    "hash": {
+      "properties": {
+        "file": {
+          "type": "string"
+        }
+      },
+      "required": []
+    },
+    "rva_to_offset": {
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "rva": {
+          "type": [
+            "string",
+            "integer"
+          ]
+        },
+        "va": {
+          "type": [
+            "string",
+            "integer"
+          ]
+        }
+      },
+      "required": []
+    },
+    "offset_to_rva": {
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "offset": {
+          "type": [
+            "string",
+            "integer"
+          ]
+        }
+      },
+      "required": [
+        "offset"
+      ]
+    },
+    "tls_callbacks": {
+      "properties": {
+        "file": {
+          "type": "string"
+        }
+      },
+      "required": []
+    },
+    "resources": {
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "required": []
+    }
+  }
+}
