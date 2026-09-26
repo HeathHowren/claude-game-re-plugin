@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Check and test
+    # Windows, because the write guard is a Windows PowerShell script and the
+    # tests run it for real. The image has both Windows PowerShell 5.1 and
+    # PowerShell 7, and the hook tests run under each.
+    runs-on: windows-2022
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Show PowerShell versions
+        shell: pwsh
+        run: |
+          powershell.exe -NoProfile -Command '$PSVersionTable.PSVersion.ToString()'
+          pwsh -NoProfile -Command '$PSVersionTable.PSVersion.ToString()'
+
+      - name: Check the plugin
+        run: node scripts/check-plugin.js
+
+      - name: Test the hook and the checker
+        run: node --test "tests/*.test.js"
+
+      # Validation works without signing in. Pinned so a CLI release cannot
+      # change the result of an unchanged commit.
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code@2.1.283
+
+      - name: Validate the manifests
+        env:
+          DISABLE_AUTOUPDATER: '1'
+        run: |
+          claude plugin validate .claude-plugin/plugin.json
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+          claude plugin validate .claude-plugin/marketplace.json
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+          foreach ($f in Get-ChildItem evals/*/pointerlab-standin/.claude-plugin/plugin.json) {
+            claude plugin validate $f.FullName
+            if ($LASTEXITCODE -ne 0) { exit 1 }
+          }
