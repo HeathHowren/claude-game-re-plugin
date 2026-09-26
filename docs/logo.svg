@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#0f2235"/>
+  <rect width="64" height="4" fill="#c0392b"/>
+  <!-- A pointer chain walked step by step: a static base, two objects, and
+       the value it lands on in orange. The steps are what the skills teach. -->
+  <rect x="7" y="13" width="14" height="10" rx="2.5" fill="none" stroke="#ffffff" stroke-width="3"/>
+  <path d="M14 23 v7 h9" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M21 27 l3.5 3 l-3.5 3" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="26" y="25" width="14" height="10" rx="2.5" fill="none" stroke="#ffffff" stroke-width="3"/>
+  <path d="M33 35 v7 h9" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 39 l3.5 3 l-3.5 3" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="44.5" y="35.5" width="13" height="13" rx="3" fill="#e67e22"/>
+</svg>
