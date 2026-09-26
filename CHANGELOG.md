@@ -14,8 +14,9 @@ The first release.
 
 - **Eight skills.** `find-a-value`, `find-what-writes`, `walk-a-pointer-chain`,
   `make-a-signature`, `write-a-trainer`, `static-recon`, `netcode-first-look`
-  and `safety`. Each follows a Handbook chapter and a Pointer Lab tutorial
-  step, gives the exact tool calls, and ends with a table of dead ends.
+  and `safety`. Each follows a Handbook chapter, gives the exact tool calls,
+  and ends with a table of dead ends. Most also follow a Pointer Lab tutorial
+  step.
 - **Four commands.** `/game-re:attach`, `/game-re:scan`, `/game-re:sig` and
   `/game-re:report`. The report command writes a findings file from what the
   session found and never writes the MCP token.
@@ -35,6 +36,6 @@ The first release.
 - **A checker,** `scripts/check-plugin.js`, that validates the manifests,
   frontmatter, cross-references, the eval suite, and every Pointer Lab and
   pe-mcp call in the docs against the tools' real schemas.
-- **29 tests** for the hook and the checker, and CI on Windows that runs them
+- **30 tests** for the hook and the checker, and CI on Windows that runs them
   in Windows PowerShell 5.1 and PowerShell 7, then runs
   `claude plugin validate`.

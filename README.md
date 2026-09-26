@@ -16,12 +16,12 @@ that would change the target's memory or code is blocked by a hook until you
 opt in.
 
 The plugin is written by Heath Howren
-([Cyborg Elf](https://www.youtube.com/c/cyborgelf)) of
+([Cyborg Elf](https://www.youtube.com/cyborgelf)) of
 [Game Reversal Club](https://gamereversal.club) as a companion to
 [*The Game Hacker's Handbook*](https://gamereversal.club/books/game-hackers-handbook/).
-Each skill follows one of the book's chapters and one lesson of the tutorial
-that ships with [Pointer Lab](https://github.com/HeathHowren/Pointer-Lab). It
-also covers [Signature Lab](https://github.com/HeathHowren/Signature-Lab) and
+Each skill follows one of the book's chapters. Most also follow a lesson of the
+tutorial that ships with [Pointer Lab](https://github.com/HeathHowren/Pointer-Lab).
+It also covers [Signature Lab](https://github.com/HeathHowren/Signature-Lab) and
 the other Game Reversal Club tools.
 
 ```
@@ -45,8 +45,8 @@ tutorial's health. Exit code 2 blocks the call, and Claude reads the message.*
 ## What it does
 
 - **Eight skills.** Each one is a procedure with real tool calls, a table of
-  dead ends, and the Handbook chapter and tutorial step it teaches. Claude
-  loads a skill when your request matches it.
+  dead ends, and the Handbook chapter it teaches. Most also name the tutorial
+  step to practice on. Claude loads a skill when your request matches it.
 - **Four commands.** `/game-re:attach`, `/game-re:scan`, `/game-re:sig` and
   `/game-re:report` run the common jobs in one line.
 - **An agent.** `re-analyst` runs a longer investigation on its own and comes
